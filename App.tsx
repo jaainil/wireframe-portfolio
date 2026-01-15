@@ -8,6 +8,8 @@ import Experience from './components/Experience';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CustomCursor from './components/ui/CustomCursor';
+import ParallaxGrid from './components/ui/ParallaxGrid';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -31,10 +33,10 @@ function App() {
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <div className="min-h-screen bg-wireframe-bg dark:bg-wireframe-bgDark text-wireframe-border dark:text-wireframe-borderDark overflow-x-hidden font-mono relative">
+    <div className="min-h-screen bg-wireframe-bg dark:bg-wireframe-bgDark text-wireframe-border dark:text-wireframe-borderDark overflow-x-hidden font-mono relative cursor-none">
       
-      {/* Background Grid Pattern - Fixed */}
-      <div className="fixed inset-0 bg-grid-pattern dark:bg-grid-pattern-dark pointer-events-none z-0 opacity-[0.03] dark:opacity-[0.05]"></div>
+      <CustomCursor />
+      <ParallaxGrid />
       
       {/* Left/Right Margin Guides (Decorative) */}
       <div className="fixed top-0 bottom-0 left-4 w-px border-l border-dashed border-gray-300 dark:border-gray-800 z-40 hidden xl:block opacity-50"></div>
