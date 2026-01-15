@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              wireframe: {
+                bg: '#FAFAFA',
+                bgDark: '#0a0a0a',
+                border: '#333333',
+                borderDark: '#e5e5e5',
+                accent: '#2563EB', // Blue
+                accentRed: '#EF4444', // Red
+              }
+            },
+            backgroundImage: {
+              'grid-pattern': "radial-gradient(circle, #333333 1px, transparent 1px)",
+              'grid-pattern-dark': "radial-gradient(circle, #e5e5e5 1px, transparent 1px)",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .bg-grid {
+        background-size: 24px 24px;
+        opacity: 0.1;
+      }
+      /* Custom Scrollbar for that technical feel */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-left: 1px solid #333;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: 2px solid #f1f1f1;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+        border-left: 1px solid #e5e5e5;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #e5e5e5;
+        border: 2px solid #0a0a0a;
+      }
+      
+      /* Cross pattern for placeholders */
+      .cross-bg {
+        position: relative;
+        overflow: hidden;
+      }
+      .cross-bg::before, .cross-bg::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 1px;
+        background-color: currentColor;
+        opacity: 0.2;
+      }
+      .cross-bg::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .cross-bg::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="bg-wireframe-bg text-wireframe-border dark:bg-wireframe-bgDark dark:text-wireframe-borderDark transition-colors duration-300 antialiased selection:bg-wireframe-accent selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
