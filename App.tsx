@@ -15,9 +15,13 @@ import Process from './components/Process';
 import Articles from './components/Articles';
 import Recognition from './components/Recognition';
 import Tools from './components/Tools';
+import Loader from './components/ui/Loader';
+import ScrollProgress from './components/ui/ScrollProgress';
+import BackToTop from './components/ui/BackToTop';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Initial Theme Check
   useEffect(() => {
@@ -40,14 +44,18 @@ function App() {
   return (
     <div className="min-h-screen bg-wireframe-bg dark:bg-wireframe-bgDark text-wireframe-border dark:text-wireframe-borderDark overflow-x-hidden font-mono relative cursor-none">
       
+      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+
       <CustomCursor />
       <ParallaxGrid />
+      <ScrollProgress />
+      <BackToTop />
       
       {/* Left/Right Margin Guides (Decorative) */}
       <div className="fixed top-0 bottom-0 left-4 w-px border-l border-dashed border-gray-300 dark:border-gray-800 z-40 hidden xl:block opacity-50"></div>
       <div className="fixed top-0 bottom-0 right-4 w-px border-r border-dashed border-gray-300 dark:border-gray-800 z-40 hidden xl:block opacity-50"></div>
 
-      <div className="relative z-10">
+      <div className={`relative z-10 transition-opacity duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar isDark={isDark} toggleTheme={toggleTheme} />
         
         <main className="flex flex-col gap-0">
