@@ -10,6 +10,11 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/ui/CustomCursor';
 import ParallaxGrid from './components/ui/ParallaxGrid';
+import Services from './components/Services';
+import Process from './components/Process';
+import Articles from './components/Articles';
+import Recognition from './components/Recognition';
+import Tools from './components/Tools';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -61,13 +66,19 @@ function App() {
           
           <Experience />
           <Testimonials />
+          
+          {/* New Sections added here to maintain flow before Contact */}
+          <Services />
+          <Process />
+          <Articles />
+          <Recognition />
+          <Tools />
+
           <Contact />
         </main>
 
         <Footer />
       </div>
-
-      {/* Scroll to top button area could go here */}
     </div>
   );
 }
